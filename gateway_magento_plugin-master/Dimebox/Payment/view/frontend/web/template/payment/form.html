@@ -1,0 +1,73 @@
+<!--
+/**
+ * Dimebox payment template
+ *
+ * @category    Dimebox
+ * @author      Chetu India Team
+ */
+-->
+
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        <label data-bind="attr: {'for': getCode()}" class="label">
+            <span data-bind="text: getTitle()"></span></label>
+    </div>
+    <div class="payment-method-content">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <div class="payment-method-billing-address">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <head>
+          <title>Checkout</title>
+        </head>
+        <iframe width="300" height="300" data-bind="attr: {src: getIframeUrl()}" id="dimebox_payment-iframe" allowtransparency="true" frameborder="0"  name="iframeTransparent" style="display:block;width:100%">
+        </iframe>
+    
+        <form style="display:none" name="threeDSecureForm" data-bind="attr: {action: getActionUrl()}" method="POST" id="threeDSecureForm">
+            <input type="hidden" name="PaReq" data-bind="attr: {value: getPareq()}" id = "PaReq">
+            <input type="hidden" name="TermUrl" data-bind="attr: {value: getTermUrl()}" id = "TermUrl">
+            <input type="hidden" name="MD" value="Merchant Description" id = "MD">
+            <input type="submit" name="continue" value="Continue" id="continue">
+        </form>
+
+        <div data-bind="afterRender : function() {window.dimeboxPay()}">
+            <form style="display:none" class="form" id="dimebox_payment-form"  action="#" method="post" data-bind="mageInit: {
+            'transparent':{                
+                'gateway': getCode()
+            }}">
+                <!-- ko template: 'Magento_Payment/payment/cc-form' --><!-- /ko -->
+            </form>
+
+
+            <div class="checkout-agreements-block">
+                <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+            </div>
+            <div class="actions-toolbar" style="display:none">
+                <div class="place primary">
+                    <button class="action primary checkout"
+                            type="submit"
+                            id="dimebox-place-order"
+                            data-bind="
+                        click: placeOrder,
+                        attr: {title: $t('Place Order')},
+                        css: {disabled: !isPlaceOrderActionAllowed()},
+                        enable: (getCode() == isChecked())
+                            "
+                            disabled>
+                        <span data-bind="i18n: 'Place Order'"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

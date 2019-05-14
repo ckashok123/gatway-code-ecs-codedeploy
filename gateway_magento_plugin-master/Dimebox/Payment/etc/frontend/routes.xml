@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<!--
+/**
+ * Dimebox routes defination for frontend controllers  
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route frontName="dimebox" id="dimebox">
+            <module name="Dimebox_Payment"/>
+        </route>
+    </router>
+</config>

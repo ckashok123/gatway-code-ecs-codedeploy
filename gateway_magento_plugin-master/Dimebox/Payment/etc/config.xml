@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * Dimebox  payment module configuration and API conguration  
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <dimebox_payment>
+                <debug>1</debug>
+                <active>1</active>
+                <model>Dimebox\Payment\Model\Extension</model>
+                <payment_action>authorize_capture</payment_action>
+                <title>Dimebox Payment Method</title>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_refund>1</can_refund>
+                <can_void>1</can_void>
+                <can_cancel>1</can_cancel>
+                <cctypes>AE,VI,MC,DI,MI</cctypes>
+                <useccv>1</useccv>
+                <enroll>3d/verify_enrolment</enroll>
+                <card>card</card>
+                <customer>customer</customer>
+                <transaction>transaction</transaction>
+                <capture>capture</capture>
+                <void>void</void>
+                <refund>refund</refund>
+                <void_on_order_cancellation>0</void_on_order_cancellation>
+                <allowspecific>0</allowspecific>
+            </dimebox_payment>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * Dimebox menu creation for reports in admin  
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <!--<menu>
+        <add id="Magento_Search::dimebox_settlement" 
+                             title="Dimebox Settlement" translate="title" 
+                             module="Dimebox_Payment" 
+                             sortOrder="99"
+                             parent="Magento_Reports::report_salesroot" 
+                             action="dimebox_payment/settlements/index" 
+                             resource="Magento_Backend::content"/>			 
+    </menu>-->
+</config>

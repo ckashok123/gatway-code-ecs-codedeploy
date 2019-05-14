@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Dimebox API end point route creation with parameter
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!--<route url="/V1/transaction/update/:id" method="GET">-->
+    <route url="/V1/transaction/update/" method="GET">
+        <service class="Dimebox\Payment\Api\TransactionInterface" method="update"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+        <data>
+            <parameter name="id" force="true">%id%</parameter>
+        </data>
+		
+    </route>
+</routes>
+
+
