@@ -1,0 +1,17 @@
+<!--
+/**
+ * Dimebox settelment report grid layout   
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="dimebox_settlement_report_listing"/>
+        </referenceContainer>
+    </body>
+</page>

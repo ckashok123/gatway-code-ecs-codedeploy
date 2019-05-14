@@ -1,0 +1,77 @@
+<?php
+/**
+ * Dime box render payment Form with I-frame
+ * 
+ * @var \Dimebox\Payment\Block\Iframe\Form $block
+ * 
+ * @category   Dimebox
+ * @package    Dimebox
+ */
+$organisationId = $block->getOrganizationId();
+$baseUrl = $block->getBaseUrl();
+$environmentUrl = $block->getEnvironmentUrl();
+$actionUrl = $block->getActionUrl();
+$pareq = $block->getPareq();
+$status = $block->getStatus();
+?>
+
+<script src="<?php echo $environmentUrl; ?>"></script>
+<form id="my_payment_form" method="POST" action="<?php echo $baseUrl ?>dimebox/iframe/form">
+    <input type="hidden" id ="dimebox_cc_number" name="db_cc_number" value="">
+    <input type="hidden" id ="dimebox_cc_month" name="db_cc_month" value="">
+    <input type="hidden" id ="dimebox_cc_year" name="db_cc_year" value="">
+    <input type="hidden" id ="dimebox_cc_cvv"  name="db_cc_cvv" value="">
+    <input type="hidden" id ="dimebox_cc_type" name="db_cc_type" value="">
+</form>
+<script>
+        var org_id = "<?php echo $organisationId ?>";
+        jsclient.injectForm(document.getElementById('my_payment_form'), {
+            "organisation_id": org_id,
+            "payment_products": [
+                "card"
+            ],
+            "dynamic_descriptor": "",
+            "cvv_placeholder3": "CVV",
+            "cvv_placeholder4": "CVV",
+            "card_number_placeholder": "Card Number",
+            "account_number_placeholder": "Account Number",
+            "routing_number_placeholder": "Routing Number",
+            "expiry_placeholder": "MM/YY",
+            "submit_title": "Pay",
+            "nr_not_valid": "Not a valid credit card number",
+            "length_not_valid": "Card number length should be between 13 and 16 digits",
+            "month_not_valid": "Expiry month must be a value between 1 and 12",
+            "year_not_valid": "Expiry year must be a value between 16 and 26",
+            "cvv_not_valid": "CVV number should contain 3 or 4 digits",
+            "account_number_not_valid": "Account number is invalid",
+            "routing_number_not_valid": "Routing number is invalid",
+            "type_ahead": false,
+            "no_style": true,
+            "hide_pan": true,
+            "cardstore_url": "",
+            "allowed_card_brands": [
+                "Mastercard",
+                "Visa",
+                "Visa Electron",
+                "Amex",
+                "Diners Club International",
+                "Discover",
+                "JCB",
+                "Maestro"
+            ],
+            "country_code": "",
+            "amount": null,
+            "api_url": "",
+            "loader_url": ""
+        });
+
+        var sendMessage = function (msg) {
+            window.parent.postMessage(msg, '*');
+        };
+        var form_data = {
+            "actionUrl": "<?php echo $actionUrl; ?>",
+            "pareq": "<?php echo $pareq; ?>",
+            "status": "<?php echo $status; ?>",
+        };
+        sendMessage(JSON.stringify(form_data));
+</script>

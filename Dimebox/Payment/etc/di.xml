@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * Dimebox  dependencies with other magento module  
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd"> 	
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="dimebox_settlement_report_listing_data_source" xsi:type="string">	Dimebox\Payment\Model\ResourceModel\Settlements\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Dimebox\Payment\Model\ResourceModel\Settlements\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">dimebox_settlement_report</argument>
+            <argument name="resourceModel" xsi:type="string">Dimebox\Payment\Model\ResourceModel\Settlements</argument>
+        </arguments>
+    </virtualType>
+	
+    <preference for="Dimebox\Payment\Api\TransactionInterface" type="Dimebox\Payment\Model\Transaction" />
+	
+</config>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<!--
+/**
+ * Dimebox merchant configuration in backend  
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="dimebox_payment" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Dimebox Payment Gateway</label>
+                <comment><![CDATA[Accept credit cards in your Magento store. ]]></comment>
+               
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable Dimebox Payment Method.]]></comment>
+                    <config_path>payment/dimebox_payment/active</config_path>
+                </field>
+                
+                <field id="payment_action" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="0">
+                    <label>Payment Action</label>
+                    <source_model>Magento\Authorizenet\Model\Source\PaymentAction</source_model>
+                </field>
+				
+                <field id="3denroll_cofiguration" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable 3D Secure</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Enable 3D Secure .]]></comment>
+                    <config_path>payment/dimebox_payment/3denroll_cofiguration</config_path>
+                </field>
+				
+                <field id="title" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1" >
+                    <label>Title</label>
+                    <comment><![CDATA[Title will be displayed on Checkout page.]]></comment>
+                    <config_path>payment/dimebox_payment/title</config_path>
+                </field>
+		
+                <field id="live" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Live Mode</label>
+                    <comment><![CDATA[Live data in Dimebox ]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>payment/dimebox_payment/live</config_path>
+                </field>
+				
+                <field id="gateway_url" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment Gateway URL</label>
+                    <config_path>payment/dimebox_payment/gateway_url</config_path>
+                    <comment><![CDATA[The API URL Do not use / in url end. ]]></comment>
+                </field>
+				
+                <field id="x_apikey" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>X-API Key</label>
+                    <config_path>payment/dimebox_payment/x_apikey</config_path>
+                </field>
+		
+                <field id="merchant_id" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant ID</label>
+                    <config_path>payment/dimebox_payment/merchant_id</config_path>
+                </field>
+				
+                <field id="organization_id" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Organization ID</label>
+                    <config_path>payment/dimebox_payment/organization_id</config_path>
+                </field>
+
+                <field id="account_id" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Account ID</label>
+                    <config_path>payment/dimebox_payment/account_id</config_path>
+                </field>
+								
+                <field id="dynamic_descriptor" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Dynamic Descriptor</label>
+                    <config_path>payment/dimebox_payment/dynamic_descriptor</config_path>
+                </field>
+					
+                <field id="shopper_interaction" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Shopper Interaction</label>
+                    <config_path>payment/dimebox_payment/shopper_interaction</config_path>
+                </field>
+				
+				<field id="card_authenticator" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Authenticator</label>
+                    <config_path>payment/dimebox_payment/card_authenticator</config_path>
+                </field>
+      
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Dimebox address configuration for frontend and backend
+ *  
+ * @category    Dimebox
+ * @copyright   Dimebox
+ */
+-->
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <methods>
+        <method name="dimebox_payment">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+    </methods>
+</payment>
